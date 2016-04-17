@@ -1,0 +1,59 @@
+local lastMonster
+
+function init(self)
+    -- Add reload-handling code here
+    -- Remove this function if not needed
+    lastMonster = nil
+end
+
+function final(self)
+    -- Add finalization code here
+    -- Remove this function if not needed
+end
+
+function update(self, dt)
+    -- Add update code here
+    -- Remove this function if not needed
+end
+
+function on_message(self, message_id, message, sender)
+    if message_id == hash("spawn_monster") then
+	    local pos = message.position
+	    pos.x = pos.x + math.random(-200, 200)
+	    pos.y = pos.y + math.random(-200, 200)
+	    
+	    factory.create("#monster_factory", pos, nil, message.monster, nil)
+    end
+    
+    if message_id == hash("merge_monster") then
+    	if lastMonster == nil then
+    		lastMonster = message
+    	else
+    		if lastMonster.type == message.type and lastMonster.color ~= message.color then
+    			local monster = { color = lastMonster.color + message.color, type = lastMonster.type, speed = lastMonster.speed * 2, life = lastMonster.life * 2, level = lastMonster.level * 2, attack = lastMonster.attack * 2, defense = lastMonster.defense * 2, movement = lastMonster.movement }    		
+	    		factory.create("#monster_factory", go.get_position(lastMonster.id), nil, monster, nil)
+	    		
+	    		go.delete(lastMonster.id)
+	    		go.delete(message.id)
+	    	elseif lastMonster.type == message.type and lastMonster.color == message.color and lastMonster.type == 1 then
+    			local monster = { color = lastMonster.color, type = 2, speed = lastMonster.speed, life = lastMonster.life + message.life, level = lastMonster.level, attack = lastMonster.attack, defense = lastMonster.defense, movement = lastMonster.movement }    		
+	    		factory.create("#monster_factory", go.get_position(lastMonster.id), nil, monster, nil)
+	    		
+	    		go.delete(lastMonster.id)
+	    		go.delete(message.id)
+	    	end
+	    	
+	    	lastMonster = nil
+    	end
+    end
+end
+
+function on_input(self, action_id, action)
+    -- Add reload-handling code here
+    -- Remove this function if not needed
+end
+
+function on_reload(self)
+    -- Add reload-handling code here
+    -- Remove this function if not needed
+end

@@ -1,0 +1,36 @@
+images {
+  image: "/main/images/life_bar_0.png"
+}
+images {
+  image: "/main/images/life_bar_10.png"
+}
+images {
+  image: "/main/images/life_bar_100.png"
+}
+images {
+  image: "/main/images/life_bar_20.png"
+}
+images {
+  image: "/main/images/life_bar_30.png"
+}
+images {
+  image: "/main/images/life_bar_40.png"
+}
+images {
+  image: "/main/images/life_bar_50.png"
+}
+images {
+  image: "/main/images/life_bar_60.png"
+}
+images {
+  image: "/main/images/life_bar_70.png"
+}
+images {
+  image: "/main/images/life_bar_80.png"
+}
+images {
+  image: "/main/images/life_bar_90.png"
+}
+margin: 0
+extrude_borders: 0
+inner_padding: 0

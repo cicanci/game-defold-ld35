@@ -1,0 +1,30 @@
+images {
+  image: "/main/images/monster_blue_body.png"
+}
+images {
+  image: "/main/images/monster_blue_head.png"
+}
+images {
+  image: "/main/images/monster_purple_body.png"
+}
+images {
+  image: "/main/images/monster_purple_head.png"
+}
+images {
+  image: "/main/images/monster_red_body.png"
+}
+images {
+  image: "/main/images/monster_red_head.png"
+}
+images {
+  image: "/main/images/monster_damage_body.png"
+}
+images {
+  image: "/main/images/monster_damage_head.png"
+}
+images {
+  image: "/main/images/monster_damage.png"
+}
+margin: 0
+extrude_borders: 0
+inner_padding: 0

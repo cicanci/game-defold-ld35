@@ -1,0 +1,15 @@
+images {
+  image: "/main/images/knight_attack.png"
+}
+images {
+  image: "/main/images/knight_damage.png"
+}
+images {
+  image: "/main/images/knight_idle.png"
+}
+images {
+  image: "/main/images/knight_damage_feedback.png"
+}
+margin: 0
+extrude_borders: 0
+inner_padding: 0
