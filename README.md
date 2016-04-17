@@ -1,2 +1,3 @@
-# game-defold-ld35
-Game developed during the Ludum Dare #35 - Shapeshift.
+Game developed during the Ludum Dare #35 - Shapeshift
+
+http://ludumdare.com/compo/ludum-dare-35/?action=preview&uid=52021
