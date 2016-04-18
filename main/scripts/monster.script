@@ -1,4 +1,4 @@
-go.property("speed", 100)
+go.property("speed", 150)
 go.property("attack", 5)
 go.property("defense", 0)
 go.property("life", 50)
@@ -38,6 +38,7 @@ local function updateState(self, newState)
 	    elseif self.state == states.damage then
 			--print("MONSTER ATTACKED")
 	    else
+	    	msg.post("hud#gui", "update_text", { score = self.level } )
 			print("MONSTER DEAD")
 			go.delete()
 		end
@@ -116,13 +117,11 @@ function init(self)
     self.delay_damage = 0.5;
     self.total_life = self.life
     
-    print("old speed = " .. self.speed)
     if self.speed < 0 then
     	self.speed = self.speed + math.random(-50, 0)
     else
     	self.speed = self.speed + math.random(0, 50)
     end
-	print("new speed = " .. self.speed)
     
     updateMonster(self)
 end

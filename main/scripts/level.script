@@ -4,6 +4,8 @@ function init(self)
     -- Add reload-handling code here
     -- Remove this function if not needed
     lastMonster = nil
+    
+    msg.post("sound#sound", "play_sound", { delay = 0, gain = 0.5 })
 end
 
 function final(self)

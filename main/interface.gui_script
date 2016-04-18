@@ -1,0 +1,44 @@
+function init(self)
+    self.time = 0
+    self.score = 0
+    self.stop = false
+end
+
+function final(self)
+    -- Add finalization code here
+    -- Remove this function if not needed
+end
+
+function update(self, dt)
+	if not self.stop then
+		self.time = self.time + dt
+	    gui.set_text(gui.get_node("text_time"), "Time: " .. math.floor(self.time) .. " seconds")
+	    gui.set_text(gui.get_node("text_score"), "Score: " .. self.score)
+	end
+end
+
+function on_message(self, message_id, message, sender)
+    if message_id == hash("update_text") then
+    	self.score = self.score + message.score 
+    end
+    
+    if message_id == hash("game_over") then
+    	self.stop = true 
+    	gui.set_text(gui.get_node("text_message"), message.message)
+    end
+    
+    if message_id == hash("the_end") then
+    	self.stop = true
+    	gui.set_text(gui.get_node("text_message"), message.message) 
+    end
+end
+
+function on_input(self, action_id, action)
+    -- Add input-handling code here
+    -- Remove this function if not needed
+end
+
+function on_reload(self)
+    -- Add input-handling code here
+    -- Remove this function if not needed
+end

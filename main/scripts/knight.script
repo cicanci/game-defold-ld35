@@ -20,6 +20,7 @@ local function updateState(self, newState)
 		elseif self.state == states.damage then
 			--print("KNIGHT ATTACKED")
 		elseif self.state == states.dead then
+			msg.post("hud#gui", "game_over", { message = "YOU ARE DEAD" } )
 			print("YOU ARE DEAD")
 			go.delete()
 		end
@@ -92,6 +93,11 @@ function on_message(self, message_id, message, sender)
 	    
 	    if message.group == hash("monster") then
 	    	--not here
+	    end
+	    
+	    if message.group == hash("exit") then
+	    	msg.post("hud#gui", "the_end", { message = "YOU DID IT!" } )
+	    	print("YOU DID IT!")
 	    end
 	end
 	
